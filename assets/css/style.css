@@ -1,0 +1,10 @@
+.title, .elevator-button {
+    text-align: center;
+}
+
+.lift {
+    width: 100px;
+    margin: 0 auto;
+    height: 100px;
+    background-color: gray;
+}
