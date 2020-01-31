@@ -36,6 +36,7 @@ closeElevator = (elevator) => {
 }
 
 moveElevator = (elevator, toFloor) => {
+    hiddenCallButtons()
     if (elevator.isOpen) {
         closeElevator(elevator)
     }
@@ -120,8 +121,22 @@ showButtonsForElevator = (elevator) => {
     buttons.hidden = false
 }
 
+hiddenCallButtons = (elevator) => {
+    let callButtons = document.getElementsByClassName('elevatorCallButton');
+    for (let item of callButtons) {
+        item.disabled= true
+    }
+}
+
+showCallButtons = (elevator) => {
+    let callButtons = document.getElementsByClassName('elevatorCallButton');
+    for (let item of callButtons){
+        item.disabled = false
+    }
+}
+
 openElevatorDoor = (elevator) => {
-    
+    showCallButtons()
     console.log('kinyilt')
     showButtonsForElevator(elevator)
     elevator.isOpen = true
@@ -129,7 +144,6 @@ openElevatorDoor = (elevator) => {
     let door = document.getElementById(id);
     door.style.backgroundColor = "blue"
     arrivedElevator = elevator;
-    
     if (highlightedSigns) {
         unHiglightArrows()
     }
